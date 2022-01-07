@@ -12,7 +12,7 @@ For Developers
 
 You can also see [Python](https://github.com/starlangsoftware/ParseTree-Py), [Cython](https://github.com/starlangsoftware/ParseTree-Cy), 
 [C++](https://github.com/starlangsoftware/ParseTree-CPP), [Swift](https://github.com/starlangsoftware/ParseTree-Swift),
-[Java](https://github.com/starlangsoftware/ParseTree-Java) or [C#](https://github.com/starlangsoftware/ParseTree-CS) repository.
+[Java](https://github.com/starlangsoftware/ParseTree) or [C#](https://github.com/starlangsoftware/ParseTree-CS) repository.
 
 ## Requirements
 
