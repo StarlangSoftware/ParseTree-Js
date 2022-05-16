@@ -3,11 +3,14 @@ import { ConstituentSpan } from "./ConstituentSpan";
 export declare class ParseTree {
     static sentenceLabels: string[];
     protected root: ParseNode;
+    protected name: string;
     /**
      * Basic constructor for a ParseTree. Initializes the root node with the input.
      * @param rootOrFileName Root node of the tree
      */
     constructor(rootOrFileName?: any);
+    setName(name: string): void;
+    getName(): String;
     /**
      * Gets the next leaf node after the given leaf node in the ParseTree.
      * @param parseNode ParseNode for which next node is calculated.

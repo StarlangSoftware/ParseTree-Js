@@ -31,6 +31,7 @@
                 }
                 let parseTree = new ParseTree_1.ParseTree(folder + "/" + file);
                 if (parseTree.getRoot() != undefined) {
+                    parseTree.setName(file);
                     this.parseTrees.push(parseTree);
                 }
             }
@@ -70,6 +71,9 @@
          */
         get(index) {
             return this.parseTrees[index];
+        }
+        removeTree(index) {
+            this.parseTrees.splice(index, 1);
         }
     }
     exports.TreeBank = TreeBank;

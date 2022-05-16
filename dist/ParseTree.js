@@ -35,6 +35,12 @@
                 }
             }
         }
+        setName(name) {
+            this.name = name;
+        }
+        getName() {
+            return this.name;
+        }
         /**
          * Gets the next leaf node after the given leaf node in the ParseTree.
          * @param parseNode ParseNode for which next node is calculated.

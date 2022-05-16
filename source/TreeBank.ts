@@ -22,6 +22,7 @@ export class TreeBank {
             }
             let parseTree = new ParseTree(folder + "/" + file)
             if (parseTree.getRoot() != undefined){
+                parseTree.setName(file)
                 this.parseTrees.push(parseTree)
             }
         }
@@ -65,5 +66,9 @@ export class TreeBank {
      */
     get(index: number): ParseTree{
         return this.parseTrees[index]
+    }
+
+    removeTree(index: number){
+        this.parseTrees.splice(index, 1)
     }
 }

@@ -9,6 +9,7 @@ export class ParseTree {
     static sentenceLabels = ["SINV", "SBARQ", "SBAR", "SQ", "S"];
 
     protected root: ParseNode = undefined
+    protected name: string
 
     /**
      * Basic constructor for a ParseTree. Initializes the root node with the input.
@@ -27,6 +28,14 @@ export class ParseTree {
                 }
             }
         }
+    }
+
+    setName(name: string){
+        this.name = name
+    }
+
+    getName(): String{
+        return this.name
     }
 
     /**
