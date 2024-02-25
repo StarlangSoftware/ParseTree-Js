@@ -19,7 +19,7 @@
   "homepage": "https://github.com/StarlangSoftware/ParseTree-Js#readme",
   "devDependencies": {
     "@types/mocha": "^9.0.0",
-    "mocha": "^9.1.3",
+    "mocha": "10.3.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
