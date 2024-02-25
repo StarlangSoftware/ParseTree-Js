@@ -49,6 +49,11 @@ export declare class ParseTree {
      */
     correctParents(): void;
     /**
+     * Calls recursive method to remove all nodes starting with the symbol X. If the node is removed, its children are
+     * connected to the next sibling of the deleted node.
+     */
+    removeXNodes(): void;
+    /**
      * Calls recursive method to remove all punctuation nodes from the tree.
      */
     stripPunctuation(): void;

@@ -75,6 +75,11 @@ export declare class ParseNode {
      */
     addChild(child: ParseNode, index?: number): void;
     /**
+     * Recursive method to remove all nodes starting with the symbol X. If the node is removed, its children are
+     * connected to the next sibling of the deleted node.
+     */
+    removeXNodes(): void;
+    /**
      * Recursive method to restore the parents of all nodes below this node in the hierarchy.
      */
     correctParents(): void;

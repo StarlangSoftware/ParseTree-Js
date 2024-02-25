@@ -267,6 +267,25 @@
             child.parent = this;
         }
         /**
+         * Recursive method to remove all nodes starting with the symbol X. If the node is removed, its children are
+         * connected to the next sibling of the deleted node.
+         */
+        removeXNodes() {
+            let i = 0;
+            while (i < this.children.length) {
+                if (this.children[i].getData().getName().startsWith("X")) {
+                    this.children.splice(i + 1, 0, ...this.children[i].children);
+                    this.children.splice(i, 1);
+                }
+                else {
+                    i++;
+                }
+            }
+            for (let child of this.children) {
+                child.removeXNodes();
+            }
+        }
+        /**
          * Recursive method to restore the parents of all nodes below this node in the hierarchy.
          */
         correctParents() {
