@@ -9,7 +9,15 @@ export declare class ParseTree {
      * @param rootOrFileName Root node of the tree
      */
     constructor(rootOrFileName?: any);
+    /**
+     * Mutator for the name attribute.
+     * @param name Name of the parse tree.
+     */
     setName(name: string): void;
+    /**
+     * Accessor for the name attribute.
+     * @return Name of the parse tree.
+     */
     getName(): String;
     /**
      * Gets the next leaf node after the given leaf node in the ParseTree.
@@ -38,6 +46,10 @@ export declare class ParseTree {
      * @return Number of all leaf nodes in the tree.
      */
     leafCount(): number;
+    /**
+     * Checks if the sentence is a full sentence or not. A sentence is a full sentence is its root tag is S, SINV, etc.
+     * @return True if the sentence is a full sentence, false otherwise.
+     */
     isFullSentence(): boolean;
     /**
      * Generates a list of constituents in the parse tree and their spans.

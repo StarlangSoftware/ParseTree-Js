@@ -30,5 +30,9 @@ export declare class TreeBank {
      * @return The ParseTree at the given index.
      */
     get(index: number): ParseTree;
+    /**
+     * Removes the parse tree at position index from the treebank.
+     * @param index Position of the tree in the treebank.
+     */
     removeTree(index: number): void;
 }

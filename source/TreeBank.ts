@@ -68,6 +68,10 @@ export class TreeBank {
         return this.parseTrees[index]
     }
 
+    /**
+     * Removes the parse tree at position index from the treebank.
+     * @param index Position of the tree in the treebank.
+     */
     removeTree(index: number){
         this.parseTrees.splice(index, 1)
     }
