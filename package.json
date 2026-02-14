@@ -1,9 +1,9 @@
 {
   "name": "nlptoolkit-parsetree",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
-  "main": "index.js",
-  "types": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "test": "Mocha"
   },
@@ -24,6 +24,6 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "nlptoolkit-dictionary": "^1.0.9"
+    "nlptoolkit-dictionary": "^1.0.13"
   }
 }

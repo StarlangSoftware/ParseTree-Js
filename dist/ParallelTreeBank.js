@@ -82,14 +82,14 @@
          * Returns the first treebank.
          * @return First treebank.
          */
-        getFromTreeBank(index) {
+        getFromTreeBank() {
             return this.fromTreeBank;
         }
         /**
          * Returns the second treebank.
          * @return Second treebank.
          */
-        toFromTreeBank(index) {
+        getToTreeBank() {
             return this.toTreeBank;
         }
     }

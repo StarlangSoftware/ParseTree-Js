@@ -40,10 +40,10 @@ export declare class ParallelTreeBank {
      * Returns the first treebank.
      * @return First treebank.
      */
-    getFromTreeBank(index: number): TreeBank;
+    getFromTreeBank(): TreeBank;
     /**
      * Returns the second treebank.
      * @return Second treebank.
      */
-    toFromTreeBank(index: number): TreeBank;
+    getToTreeBank(): TreeBank;
 }
