@@ -1,85 +1,108 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
     }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./ParseTree", "fs"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    exports.TreeBank = void 0;
-    const ParseTree_1 = require("./ParseTree");
-    const fs = require("fs");
-    class TreeBank {
-        /**
-         * A constructor of {@link TreeBank} class which reads all {@link ParseTree} files inside the given folder. For each
-         * file inside that folder, the constructor creates a ParseTree and puts in inside the list parseTrees.
-         * @param folder Folder where all parseTrees reside.
-         * @param pattern File pattern such as "." ".train" ".test".
-         */
-        constructor(folder, pattern) {
-            this.parseTrees = new Array();
-            let files = fs.readdirSync(folder);
-            files.sort();
-            for (let file of files) {
-                if (pattern != undefined) {
-                    if (!file.includes(pattern)) {
-                        continue;
-                    }
-                }
-                let parseTree = new ParseTree_1.ParseTree(folder + "/" + file);
-                if (parseTree.getRoot() != undefined) {
-                    parseTree.setName(file);
-                    this.parseTrees.push(parseTree);
-                }
-            }
-        }
-        /**
-         * Strips punctuation symbols from all parseTrees in this TreeBank.
-         */
-        stripPunctuation() {
-            for (let tree of this.parseTrees) {
-                tree.stripPunctuation();
-            }
-        }
-        /**
-         * Returns number of trees in the TreeBank.
-         * @return Number of trees in the TreeBank.
-         */
-        size() {
-            return this.parseTrees.length;
-        }
-        /**
-         * Returns number of words in the parseTrees in the TreeBank. If excludeStopWords is true, stop words are not
-         * counted.
-         * @param excludeStopWords If true, stop words are not included in the count process.
-         * @return Number of all words in all parseTrees in the TreeBank.
-         */
-        wordCount(excludeStopWords) {
-            let count = 0;
-            for (let tree of this.parseTrees) {
-                count += tree.wordCount(excludeStopWords);
-            }
-            return count;
-        }
-        /**
-         * Accessor for a single ParseTree.
-         * @param index Index of the parseTree.
-         * @return The ParseTree at the given index.
-         */
-        get(index) {
-            return this.parseTrees[index];
-        }
-        /**
-         * Removes the parse tree at position index from the treebank.
-         * @param index Position of the tree in the treebank.
-         */
-        removeTree(index) {
-            this.parseTrees.splice(index, 1);
-        }
-    }
-    exports.TreeBank = TreeBank;
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
 });
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TreeBank = void 0;
+const ParseTree_1 = require("./ParseTree");
+const fs = __importStar(require("fs"));
+class TreeBank {
+    parseTrees = new Array();
+    /**
+     * A constructor of {@link TreeBank} class which reads all {@link ParseTree} files inside the given folder. For each
+     * file inside that folder, the constructor creates a ParseTree and puts in inside the list parseTrees.
+     * @param folder Folder where all parseTrees reside.
+     * @param pattern File pattern such as "." ".train" ".test".
+     */
+    constructor(folder, pattern) {
+        let files = fs.readdirSync(folder);
+        files.sort();
+        for (let file of files) {
+            if (pattern != undefined) {
+                if (!file.includes(pattern)) {
+                    continue;
+                }
+            }
+            let parseTree = new ParseTree_1.ParseTree(folder + "/" + file);
+            if (parseTree.getRoot() != undefined) {
+                parseTree.setName(file);
+                this.parseTrees.push(parseTree);
+            }
+        }
+    }
+    /**
+     * Strips punctuation symbols from all parseTrees in this TreeBank.
+     */
+    stripPunctuation() {
+        for (let tree of this.parseTrees) {
+            tree.stripPunctuation();
+        }
+    }
+    /**
+     * Returns number of trees in the TreeBank.
+     * @return Number of trees in the TreeBank.
+     */
+    size() {
+        return this.parseTrees.length;
+    }
+    /**
+     * Returns number of words in the parseTrees in the TreeBank. If excludeStopWords is true, stop words are not
+     * counted.
+     * @param excludeStopWords If true, stop words are not included in the count process.
+     * @return Number of all words in all parseTrees in the TreeBank.
+     */
+    wordCount(excludeStopWords) {
+        let count = 0;
+        for (let tree of this.parseTrees) {
+            count += tree.wordCount(excludeStopWords);
+        }
+        return count;
+    }
+    /**
+     * Accessor for a single ParseTree.
+     * @param index Index of the parseTree.
+     * @return The ParseTree at the given index.
+     */
+    get(index) {
+        return this.parseTrees[index];
+    }
+    /**
+     * Removes the parse tree at position index from the treebank.
+     * @param index Position of the tree in the treebank.
+     */
+    removeTree(index) {
+        this.parseTrees.splice(index, 1);
+    }
+}
+exports.TreeBank = TreeBank;
 //# sourceMappingURL=TreeBank.js.map
